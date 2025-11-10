@@ -21,13 +21,11 @@ async def on_ready():
 async def islem(ctx, sayi1, sayi2):
     toplam = int(sayi1) + int(sayi2)
     await ctx.channel.send(f"toplam: {toplam}")
-    
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-    if message.content.startswith("hello"):
-        await message.channel.send(f"hello I am {bot.user.name}")
+
+@bot.command("topla1")
+async def islem(ctx):
+    toplam = int(34) + int(57)
+    await ctx.channel.send(f"toplam: {toplam}")
 
 @bot.command("çıkar")
 async def islem(ctx, sayi1, sayi2):
@@ -58,3 +56,10 @@ async def islem(ctx):
     await ctx.channel.send(f"bana birşey demek için bot yazınız, bana birşey yaptırmak için botun sonuna yaptıracağnızı yazın iyi şanslar😎")
 
 bot.run(TOKEN)
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    if message.content.startswith("hello"):
+        await message.channel.send(f"hello I am {bot.user.name}")
